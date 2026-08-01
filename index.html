@@ -14,12 +14,12 @@
         body {
             background-color: #1e0938;
             color: #ffffff;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
             padding: 20px;
             position: relative;
         }
@@ -59,6 +59,7 @@
             position: relative;
             z-index: 2;
             animation: fadeInDown 1s ease;
+            margin-bottom: 20px;
         }
         .logo-container h1 {
             font-size: 34px;
@@ -80,8 +81,7 @@
             align-items: center;
             width: 100%;
             max-width: 1100px;
-            flex-grow: 1;
-            padding: 0 20px;
+            padding: 20px 0;
             position: relative;
             z-index: 2;
         }
@@ -93,7 +93,7 @@
             animation: fadeInRight 1s ease;
         }
         .right-box h2 {
-            font-size: 40px;
+            font-size: 38px;
             font-weight: bold;
             line-height: 1.3;
             color: #ffffff;
@@ -105,14 +105,14 @@
             background-color: #ff3d57;
             color: #ffffff;
             padding: 8px 22px;
-            font-size: 32px;
+            font-size: 30px;
             font-weight: bold;
             border-radius: 6px;
             box-shadow: 0 5px 20px rgba(255, 61, 87, 0.6);
             animation: pulseGlow 2s infinite;
         }
 
-        /* جهة اليسار: اللابتوب وزر تسجيل الدخول */
+        /* جهة اليسار: اللابتوب وزر التليجرام */
         .left-box {
             position: relative;
             width: 480px;
@@ -154,20 +154,20 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #00bcd4, #008ba3);
+            background: linear-gradient(135deg, #0088cc, #005580);
             color: #ffffff;
-            padding: 14px 30px;
+            padding: 14px 24px;
             border-radius: 30px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 5px 20px rgba(0, 188, 212, 0.5);
+            box-shadow: 0 5px 20px rgba(0, 136, 204, 0.5);
             transition: all 0.3s ease;
         }
         .login-btn:hover {
             transform: scale(1.08);
-            box-shadow: 0 8px 30px rgba(0, 188, 212, 0.8);
-            background: linear-gradient(135deg, #00e5ff, #00bcd4);
+            box-shadow: 0 8px 30px rgba(0, 136, 204, 0.8);
+            background: linear-gradient(135deg, #0099e6, #0088cc);
         }
         .laptop-base {
             background-color: #593382;
@@ -186,6 +186,32 @@
             border-bottom-right-radius: 6px;
         }
 
+        /* قسم وصف الموقع الإضافي لتقوية القبول */
+        .about-section {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(30, 15, 56, 0.75);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+        .about-section h3 {
+            color: #00bcd4;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        .about-section p {
+            color: #d1c4e9;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
         /* حاوية الإعلان */
         .ad-container {
             width: 100%;
@@ -193,7 +219,7 @@
             justify-content: center;
             position: relative;
             z-index: 2;
-            margin: 5px 0;
+            margin: 15px 0;
         }
 
         /* الفوتر السفلي */
@@ -206,6 +232,7 @@
             color: #d1c4e9;
             position: relative;
             z-index: 2;
+            margin-top: 10px;
         }
         .footer-badge {
             background-color: rgba(255, 255, 255, 0.1);
@@ -214,7 +241,7 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        /* تأثيرات الحركة (Animations) */
+        /* تأثيرات الحركة */
         @keyframes floatBackground {
             0% { transform: scale(1) translate(0, 0); }
             50% { transform: scale(1.08) translate(-2%, -2%); }
@@ -255,29 +282,35 @@
     <!-- الشعار في الأعلى -->
     <div class="logo-container">
         <h1>WISAM</h1>
-        <p>لتنزيل الالعاب</p>
+        <p>لتنزيل الألعاب</p>
     </div>
 
     <!-- المحتوى الرئيسي -->
     <div class="main-content">
-        <!-- جهة اليمين: النصوص -->
+        <!-- جهة اليمين: النصوص المعدلة -->
         <div class="right-box">
-            <h2>تنزيل الالعاب المكركه</h2>
+            <h2>لتنزيل الألعاب</h2>
             <div class="highlight-box">والمودات</div>
         </div>
 
-        <!-- جهة اليسار: شاشة اللابتوب وبداخلها زر تسجيل الدخول -->
+        <!-- جهة اليسار: شاشة اللابتوب وزر التليجرام -->
         <div class="left-box">
             <div class="laptop-screen">
                 <div class="controller-icon">🎮</div>
-                <a href="https://wisampro94-spec.github.io/game-login/" class="login-btn">
-                    <span>🔑</span> تسجيل الدخول للتحميل
+                <a href="https://t.me/wisamgames" target="_blank" class="login-btn">
+                    <span>📢</span> افتح التيلجرام للتحميل
                 </a>
             </div>
             <div class="laptop-base">
                 <div class="laptop-notch"></div>
             </div>
         </div>
+    </div>
+
+    <!-- قسم وصف الموقع الإضافي لتقوية قبول الموقع في الإعلانات -->
+    <div class="about-section">
+        <h3>عن موقع WISAM Games</h3>
+        <p>مرحباً بك في المنصة الرسمية لتحميل أحدث ألعاب الكمبيوتر وبرامجها. يعتبر هذا الموقع وجهتك الأولى لتنزيل الالعاب وجميع مودات الالعاب بسهولة وأمان تام، حيث نوفر لك روابط مباشرة ومحدثة باستمرار لتستمتع بتجربة ألعاب مميزة وخالية من التعقيد.</p>
     </div>
 
     <!-- مكان إعلان A-Ads -->
