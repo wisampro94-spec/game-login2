@@ -31,11 +31,10 @@
             left: -5%;
             width: 110%;
             height: 110%;
-            /* استخدام صورة بوسترات ألعاب مباشرة مع إمكانية استبدالها بـ bg.jpg إن أردت */
             background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop'), url('bg.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0.35; /* زيادة الشفافية حتى تظهر الألعاب بوضوح ممتاز */
+            opacity: 0.35;
             z-index: 0;
             filter: contrast(1.1);
             animation: floatBackground 20s ease-in-out infinite alternate;
@@ -187,6 +186,16 @@
             border-bottom-right-radius: 6px;
         }
 
+        /* حاوية الإعلان */
+        .ad-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            margin: 5px 0;
+        }
+
         /* الفوتر السفلي */
         .footer {
             width: 100%;
@@ -207,15 +216,9 @@
 
         /* تأثيرات الحركة (Animations) */
         @keyframes floatBackground {
-            0% {
-                transform: scale(1) translate(0, 0);
-            }
-            50% {
-                transform: scale(1.08) translate(-2%, -2%);
-            }
-            100% {
-                transform: scale(1.04) translate(2%, 1%);
-            }
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.08) translate(-2%, -2%); }
+            100% { transform: scale(1.04) translate(2%, 1%); }
         }
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
@@ -275,6 +278,15 @@
                 <div class="laptop-notch"></div>
             </div>
         </div>
+    </div>
+
+    <!-- مكان إعلان A-Ads -->
+    <div class="ad-container">
+        <!-- BEGIN AADS AD UNIT 2450255 -->
+        <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99998;">
+            <iframe data-aa='2450255' src='//acceptable.a-ads.com/2450255/?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display:block; margin:auto'></iframe>
+        </div>
+        <!-- END AADS AD UNIT 2450255 -->
     </div>
 
     <!-- الفوتر -->
