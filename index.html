@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WISAM - لتنزيل الألعاب</title>
+    <title>WISAM - لتنزيل الألعاب والمودات</title>
     <style>
         * {
             box-sizing: border-box;
@@ -14,13 +14,7 @@
         body {
             background-color: #1e0938;
             color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
             overflow-x: hidden;
-            padding: 20px;
             position: relative;
         }
 
@@ -41,25 +35,34 @@
             pointer-events: none;
         }
 
-        /* طبقة تدرج أرجواني لتناسق الألوان مع الصورة */
+        /* طبقة تدرج أرجواني */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(61, 22, 100, 0.5) 0%, rgba(20, 5, 38, 0.85) 100%);
+            background: radial-gradient(circle, rgba(61, 22, 100, 0.5) 0%, rgba(20, 5, 38, 0.9) 100%);
             z-index: 1;
             pointer-events: none;
+        }
+
+        /* الواجهة الرئيسية تملأ الشاشة تماماً */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         /* الشعار في الأعلى */
         .logo-container {
             text-align: center;
-            position: relative;
-            z-index: 2;
             animation: fadeInDown 1s ease;
-            margin-bottom: 20px;
         }
         .logo-container h1 {
             font-size: 34px;
@@ -74,23 +77,18 @@
             margin-top: 2px;
         }
 
-        /* المحتوى الرئيسي */
+        /* المحتوى الرئيسي للواجهة */
         .main-content {
             display: flex;
             justify-content: space-around;
             align-items: center;
             width: 100%;
             max-width: 1100px;
-            padding: 20px 0;
-            position: relative;
-            z-index: 2;
         }
 
-        /* جهة اليمين: النصوص */
         .right-box {
             text-align: right;
             max-width: 420px;
-            animation: fadeInRight 1s ease;
         }
         .right-box h2 {
             font-size: 38px;
@@ -112,12 +110,10 @@
             animation: pulseGlow 2s infinite;
         }
 
-        /* جهة اليسار: اللابتوب وزر التليجرام */
         .left-box {
             position: relative;
             width: 480px;
             max-width: 100%;
-            animation: fadeInLeft 1s ease;
         }
         .laptop-screen {
             background-color: rgba(20, 10, 32, 0.92);
@@ -133,14 +129,6 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
             overflow: hidden;
             backdrop-filter: blur(8px);
-        }
-        .laptop-screen::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(0,188,212,0.15) 0%, transparent 70%);
-            animation: rotateGlow 10s linear infinite;
         }
         .controller-icon {
             font-size: 48px;
@@ -174,7 +162,6 @@
             height: 18px;
             border-bottom-left-radius: 12px;
             border-bottom-right-radius: 12px;
-            position: relative;
             display: flex;
             justify-content: center;
         }
@@ -186,30 +173,48 @@
             border-bottom-right-radius: 6px;
         }
 
-        /* قسم وصف الموقع الإضافي لتقوية القبول */
-        .about-section {
-            width: 100%;
-            max-width: 900px;
-            background: rgba(30, 15, 56, 0.75);
-            border: 1px solid rgba(0, 188, 212, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
+        /* مؤشر النزول للأسفل (Scroll Down Indicator) */
+        .scroll-down {
             text-align: center;
+            color: #00bcd4;
+            font-size: 14px;
+            animation: bounce 2s infinite;
+            margin-bottom: 10px;
+        }
+
+        /* قسم الوصف الطويل أسفل الصفحة (تحتاج سكرول لقرائته) */
+        .long-description-section {
             position: relative;
             z-index: 2;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            background: rgba(25, 10, 45, 0.85);
+            border: 1px solid rgba(0, 188, 212, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
         }
-        .about-section h3 {
+        .long-description-section h3 {
             color: #00bcd4;
-            font-size: 22px;
-            margin-bottom: 12px;
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid rgba(0, 188, 212, 0.2);
+            padding-bottom: 10px;
         }
-        .about-section p {
+        .long-description-section h4 {
+            color: #ff3d57;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .long-description-section p {
             color: #d1c4e9;
             font-size: 15px;
-            line-height: 1.6;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
         }
 
         /* حاوية الإعلان */
@@ -219,12 +224,14 @@
             justify-content: center;
             position: relative;
             z-index: 2;
-            margin: 15px 0;
+            margin: 20px 0;
         }
 
         /* الفوتر السفلي */
         .footer {
             width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -232,7 +239,8 @@
             color: #d1c4e9;
             position: relative;
             z-index: 2;
-            margin-top: 10px;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         .footer-badge {
             background-color: rgba(255, 255, 255, 0.1);
@@ -241,7 +249,7 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        /* تأثيرات الحركة */
+        /* الحركات */
         @keyframes floatBackground {
             0% { transform: scale(1) translate(0, 0); }
             50% { transform: scale(1.08) translate(-2%, -2%); }
@@ -251,14 +259,6 @@
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
         @keyframes floatIcon {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-7px); }
@@ -267,50 +267,67 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.03); }
         }
-        @keyframes rotateGlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- خلفية الصورة المتحركة + طبقة التدرج -->
+    <!-- خلفية الصورة المتحركة + التدرج -->
     <div class="bg-animated"></div>
     <div class="bg-overlay"></div>
 
-    <!-- الشعار في الأعلى -->
-    <div class="logo-container">
-        <h1>WISAM</h1>
-        <p>لتنزيل الألعاب</p>
-    </div>
-
-    <!-- المحتوى الرئيسي -->
-    <div class="main-content">
-        <!-- جهة اليمين: النصوص المعدلة -->
-        <div class="right-box">
-            <h2>لتنزيل الألعاب</h2>
-            <div class="highlight-box">والمودات</div>
+    <!-- الواجهة الأولى نظيفة تماماً -->
+    <div class="hero-section">
+        <!-- الشعار في الأعلى -->
+        <div class="logo-container">
+            <h1>WISAM</h1>
+            <p>لتنزيل الألعاب</p>
         </div>
 
-        <!-- جهة اليسار: شاشة اللابتوب وزر التليجرام -->
-        <div class="left-box">
-            <div class="laptop-screen">
-                <div class="controller-icon">🎮</div>
-                <a href="https://t.me/wisamgames" target="_blank" class="login-btn">
-                    <span>📢</span> افتح التيلجرام للتحميل
-                </a>
+        <!-- المحتوى الرئيسي -->
+        <div class="main-content">
+            <div class="right-box">
+                <h2>لتنزيل الالعاب</h2>
+                <div class="highlight-box">والمودات</div>
             </div>
-            <div class="laptop-base">
-                <div class="laptop-notch"></div>
+
+            <div class="left-box">
+                <div class="laptop-screen">
+                    <div class="controller-icon">🎮</div>
+                    <a href="https://t.me/wisamgames" target="_blank" class="login-btn">
+                        <span>📢</span> افتح التيلجرام للتحميل
+                    </a>
+                </div>
+                <div class="laptop-base">
+                    <div class="laptop-notch"></div>
+                </div>
             </div>
+        </div>
+
+        <!-- سهم أو تلميح للنزول للأسفل -->
+        <div class="scroll-down">
+            ↓ انزل لأسفل لقراءة تفاصيل ووصف الموقع ↓
         </div>
     </div>
 
-    <!-- قسم وصف الموقع الإضافي لتقوية قبول الموقع في الإعلانات -->
-    <div class="about-section">
-        <h3>عن موقع WISAM Games</h3>
-        <p>مرحباً بك في المنصة الرسمية لتحميل أحدث ألعاب الكمبيوتر وبرامجها. يعتبر هذا الموقع وجهتك الأولى لتنزيل الالعاب وجميع مودات الالعاب بسهولة وأمان تام، حيث نوفر لك روابط مباشرة ومحدثة باستمرار لتستمتع بتجربة ألعاب مميزة وخالية من التعقيد.</p>
+    <!-- قسم الوصف الطويل (يتطلب سكرول بالماوس) -->
+    <div class="long-description-section">
+        <h3>مرحباً بكم في منصة WISAM Games الرسمية</h3>
+        
+        <p>يعتبر موقع WISAM Games وجهتك الأولى والمميزة على الإنترنت لتنزيل الألعاب وجميع مودات الألعاب بكل سهولة وأمان ت沒 تام. لقد تم تصميم هذه المنصة خصيصاً لتلبية احتياجات عشاق ألعاب الكمبيوتر ومحبي التعديلات والإضافات الحصرية التي ترفع من مستوى متعة الألعاب وتمنحهم تجربة فريدة من نوعها.</p>
+        
+        <h4>لماذا تختار موقع WISAM Games؟</h4>
+        <p>نحن نوفر لك مكتبة ضخمة ومتجددة باستمرار تضم أقوى وأحدث ألعاب الكمبيوتر، بالإضافة إلى تشكيلة واسعة من المودات والإضافات البرمجية التي تبحث عنها. كل ما تحتاجه لتطوير تجربتك اللعب تجده هنا مرتباً ومنظماً لسهولة الوصول إليه.</p>
+        
+        <h4>سهولة التحميل عبر قناة التليجرام</h4>
+        <p>حرصاً منا على تقديم أسرع وأسهل تجربة للمستخدمين، قمنا بربط الموقع مباشرة بقناتنا الرسمية على التليجرام (<strong>t.me/wisamgames</strong>). بضغطة زر واحدة على شاشة العرض بالأعلى، سيتم توجيهك مباشرة نحو الملفات والروابط المباشرة والآمنة للتحميل الفوري بدون إعلانات مزعجة أو تعقيدات تقنية.</p>
+        
+        <h4>التحديثات المستمرة والأمان</h4>
+        <p>فريق العمل لدينا يعمل على مدار الساعة لتحديث الروابط، إضافة مودات جديدة، ومتابعة كل ما هو جديد في عالم الألعاب لضمان حصول الزائر الكريم على أفضل محتوى ممكن بجودة عالية وبدون أي ملفات ضارة.</p>
     </div>
 
     <!-- مكان إعلان A-Ads -->
@@ -325,7 +342,7 @@
     <!-- الفوتر -->
     <div class="footer">
         <div class="footer-badge">wisamgames.net</div>
-        <div>جميع الحقوق محفوظة</div>
+        <div>جميع الحقوق محفوظة © 2026 WISAM Games</div>
     </div>
 
 </body>
