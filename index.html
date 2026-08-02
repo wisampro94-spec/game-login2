@@ -19,11 +19,20 @@
         .result-box { margin-top: 25px; padding: 20px; background: #0a0412; border: 1px solid #00bcd4; border-radius: 10px; display: none; line-height: 1.8; color: #e0e0e0; font-size: 15px; white-space: pre-wrap; }
         .loading { display: none; text-align: center; margin-top: 20px; color: #00bcd4; font-weight: bold; }
         
-        /* حاوية الإعلان */
-        .ad-container { width: 100%; max-width: 650px; margin-top: 20px; text-align: center; }
+        /* حاويات الإعلانات */
+        .ad-container { width: 100%; max-width: 650px; margin: 15px 0; text-align: center; }
     </style>
 </head>
 <body>
+
+<!-- 📢 الإعلان الأول (الوحدة القديمة 2450255) -->
+<div class="ad-container">
+    <!-- BEGIN AADS AD UNIT 2450255 -->
+    <div id="frame1" style="width: 100%; margin: auto; position: relative; z-index: 99998;">
+        <iframe data-aa='2450255' src='//acceptable.a-ads.com/2450255/?size=Adaptive' style='border:0; padding:0; width:100%; height:auto; overflow:hidden; display:block; margin:auto'></iframe>
+    </div>
+    <!-- END AADS AD UNIT 2450255 -->
+</div>
 
 <div class="container">
     <h1>🎮 WISAM FPS test</h1>
@@ -59,13 +68,13 @@
     <div class="result-box" id="result"></div>
 </div>
 
-<!-- مكان الإعلان المضاف أسفل كارت الفحص الرئيسي -->
+<!-- 📢 الإعلان الثاني (الوحدة الجديدة 2450336) -->
 <div class="ad-container">
-    <!-- BEGIN AADS AD UNIT 2450255 -->
-    <div id="frame" style="width: 100%; margin: auto; position: relative; z-index: 99998;">
-        <iframe data-aa='2450255' src='//acceptable.a-ads.com/2450255/?size=Adaptive' style='border:0; padding:0; width:100%; height:auto; overflow:hidden; display:block; margin:auto'></iframe>
+    <!-- BEGIN AADS AD UNIT 2450336 -->
+    <div id="frame2" style="width: 100%; margin: auto; position: relative; z-index: 99998;">
+        <iframe data-aa='2450336' src='//acceptable.a-ads.com/2450336/?size=Adaptive' style='border:0; padding:0; width:100%; height:auto; overflow:hidden; display:block; margin:auto'></iframe>
     </div>
-    <!-- END AADS AD UNIT 2450255 -->
+    <!-- END AADS AD UNIT 2450336 -->
 </div>
 
 <script>
@@ -85,7 +94,6 @@
         loadingDiv.style.display = 'block';
         resultDiv.style.display = 'none';
 
-        // 🔑 مفتاح Groq
         const GROQ_API_KEY = "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"; 
 
         const promptText = `أنت خبير فحص أداء ألعاب. اجب باختصار شديد وبدون أي مقدمات أو خاتمة (من 2 إلى 4 أسطر فقط):
